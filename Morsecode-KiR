@@ -14,12 +14,12 @@ void setup() {
 }
 
 void loop() {
-  // Call a function to transmit the Morse code for "KiR"
+  // Call a function to transmit the Morse code for "KiV"
   transmitMorseCode("K");
   delay(spaceBetweenLetters);  // Space between letters
   transmitMorseCode("i");
   delay(spaceBetweenLetters);
-  transmitMorseCode("R");
+  transmitMorseCode("V");
   delay(spaceBetweenLetters);
 }
 
@@ -30,19 +30,19 @@ void transmitMorseCode(const char* text) {
       delay(spaceBetweenSymbols);
     } else {
       if (c == 'K' || c == 'k') {
-        // Morse code for K (KiR)
+        // Morse code for K (KiV)
         digitalWrite(buzzerPin, HIGH);
         delay(dotDuration);
         digitalWrite(buzzerPin, LOW);
         delay(spaceBetweenSymbols);
-      } else if (c == 'i') {
-        // Morse code for i (KiR)
+      } else if (c == 'i' || c == 'I') {
+        // Morse code for i (KiV)
         digitalWrite(buzzerPin, HIGH);
         delay(dotDuration);
         digitalWrite(buzzerPin, LOW);
         delay(spaceBetweenSymbols);
-      } else if (c == 'R' || c == 'r') {
-        // Morse code for R (KiR)
+      } else if (c == 'V' || c == 'v') {
+        // Morse code for V (KiV)
         digitalWrite(buzzerPin, HIGH);
         delay(dotDuration);
         digitalWrite(buzzerPin, LOW);
