@@ -7,7 +7,7 @@ const int buzzerPin = D2;  // You can change this pin to the one you're using
 const int dotDuration = 200;  // Duration of a dot in milliseconds
 const int dashDuration = dotDuration * 3;  // Duration of a dash (3 times a dot)
 const int spaceBetweenSymbols = dotDuration;  // Duration between symbols (1 dot)
-const int spaceBetweenLetters = dotDuration * 3;  // Duration between letters (3 dots)
+const int spaceBetweenLetters = dotDuration * 7;  // Duration between letters (3 dots)
 
 void setup() {
   pinMode(buzzerPin, OUTPUT);
