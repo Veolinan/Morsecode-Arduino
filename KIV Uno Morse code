@@ -1,0 +1,58 @@
+#define BUZZER_PIN 8  // Define the buzzer pin for Arduino Uno (use pin 8)
+
+// Morse code timing
+#define DOT_DURATION 250   // Duration of a dot in milliseconds
+#define DASH_DURATION 1000 // Duration of a dash in milliseconds
+#define SYMBOL_SPACE 250   // Gap between dots and dashes within a character
+#define LETTER_SPACE 500   // Gap between letters
+#define WORD_SPACE 1000    // Gap between words
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+}
+
+void loop() {
+  // Define Morse code for 'K', 'I', and 'V'
+  char message[] = "KIV";
+
+  for (int i = 0; i < strlen(message); i++) {
+    char currentChar = message[i];
+    switch (currentChar) {
+      case 'K':
+        playMorseCode("-.- ");
+        break;
+      case 'I':
+        playMorseCode(".. ");
+        break;
+      case 'V':
+        playMorseCode("...- ");
+        break;
+      case ' ':
+        delay(WORD_SPACE - SYMBOL_SPACE); // If it's a space, delay for word space
+        break;
+    }
+  }
+}
+
+void playMorseCode(String morseCode) {
+  for (int i = 0; i < morseCode.length(); i++) {
+    if (morseCode[i] == '.')
+      playDot();
+    else if (morseCode[i] == '-')
+      playDash();
+    delay(SYMBOL_SPACE); // Gap between dots and dashes within a character
+  }
+  delay(LETTER_SPACE - SYMBOL_SPACE); // Gap between letters
+}
+
+void playDot() {
+  tone(BUZZER_PIN, 2000, DOT_DURATION); // Use pin 8 and increase frequency to make it louder
+  delay(DOT_DURATION);
+  noTone(BUZZER_PIN);
+}
+
+void playDash() {
+  tone(BUZZER_PIN, 2000, DASH_DURATION); // Use pin 8 and increase frequency to make it louder
+  delay(DASH_DURATION);
+  noTone(BUZZER_PIN);
+}
