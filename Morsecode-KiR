@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 // Define the buzzer pin
-const int buzzerPin = D2;  // You can change this pin to the one you're using
+const int buzzerPin = D2;  // Feel free to use any pin
 
 // Define the Morse code timings (you can adjust these values)
 const int dotDuration = 200;  // Duration of a dot in milliseconds
